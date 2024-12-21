@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using NLog;
 
 namespace kanimal
@@ -64,6 +65,9 @@ namespace kanimal
                 writer.Write(symbol.Color);
                 writer.Write(symbol.Flags);
                 writer.Write(symbol.Frames.Count);
+                //Here?
+                symbol.Frames = symbol.Frames.OrderBy(f => f.SourceFrameNum).ToList();
+                //
 
                 for (var j = 0; j < symbol.Frames.Count; j++)
                 {
