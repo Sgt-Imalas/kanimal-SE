@@ -69,6 +69,7 @@ namespace kanimal
                 symbol.Frames = symbol.Frames.OrderBy(f => f.SourceFrameNum).ToList();
                 //
 
+                symbol.Frames.Sort( (a,b) => a.SourceFrameNum.CompareTo(b.SourceFrameNum));
                 for (var j = 0; j < symbol.Frames.Count; j++)
                 {
                     var frame = symbol.Frames[j];
